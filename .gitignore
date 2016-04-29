@@ -1,0 +1,9 @@
+node_modules
+.vagrant
+.config
+.users
+.ssl
+.DS_Store
+tmp/*
+*sublime*
+*.log

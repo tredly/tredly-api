@@ -1,0 +1,19 @@
+{
+    "globals": {
+        "angular": true
+    },
+    "env": {
+        "node": true,
+        "browser": true,
+        "es6": true
+    },
+    "rules": {
+        "no-shadow": 0,
+        "new-cap": 0,
+        "camelcase": 0,
+        "no-underscore-dangle": 0,
+        "global-strict": 0,
+        "quotes": [2, "single"],
+        "no-use-before-define": [2, "nofunc"]
+    }
+}

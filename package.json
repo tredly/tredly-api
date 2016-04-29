@@ -1,0 +1,38 @@
+{
+  "name": "tredly-api",
+  "version": "0.1.0",
+  "description": "Tredly API",
+  "main": "index.js",
+  "scripts": {
+    "start": "forever start --minUptime 0 --spinSleepTime 1000 -a -c 'node --harmony' --uid tredly-api index.js",
+    "list": "forever list",
+    "stop": "forever stop tredly-api",
+    "restart": "forever restart tredly-api",
+    "logs": "forever logs index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "tredly"
+  ],
+  "author": "Tredly Team",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "async": "^1.4.2",
+    "atob": "^1.1.2",
+    "btoa": "^1.1.2",
+    "co": "^4.6.0",
+    "colors": "^1.1.2",
+    "forever": "^0.15.1",
+    "koa": "^1.0.0",
+    "koa-body": "^1.2.1",
+    "koa-cors": "0.0.16",
+    "koa-router": "^5.1.2",
+    "lodash": "^4.11.1",
+    "minimist": "^1.2.0",
+    "mkdirp": "^0.5.1",
+    "read": "^1.0.7",
+    "request": "^2.61.0",
+    "tar-stream": "^1.5.2",
+    "uuid": "^2.0.1"
+  }
+}
