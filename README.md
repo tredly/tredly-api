@@ -1,7 +1,7 @@
 # Tredly API
 
-Version 0.1.0
-Apr 29 2016
+Version 0.2.0
+May 4 2016
 
 This is a software package to provide API to Tredly Host. You can find out more information about Tredly at **[http://tredly.com](http://tredly.com)**
 
@@ -13,7 +13,7 @@ Checkout this repo and run `./install.sh` to install.
 
 ## Usage
 
-Tredly API can be used alone or with tredly-cli 0.1.0 **[https://github.com/tredly/tredly-cli](https://github.com/tredly/tredly-cli)** to provide remote access to Tredly Host.
+Tredly API can be used alone or with tredly-cli 0.2.0 **[https://github.com/tredly/tredly-cli](https://github.com/tredly/tredly-cli)** to provide remote access to Tredly Host.
 
 ## Contributing
 
