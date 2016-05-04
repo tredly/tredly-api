@@ -1,0 +1,58 @@
+#!/bin/sh
+
+# PROVIDE: tredly-api
+# BEFORE:  LOGIN FILESYSTEMS
+# KEYWORD: shutdown
+
+. /etc/rc.subr
+
+name="tredlyapi"
+rcvar="tredlyapi_enable"
+
+PATH="/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin:/root/bin"
+
+command="/usr/local/bin/npm"
+
+tredlyapi_directory="/usr/local/sbin/tredly-api"
+
+start_cmd="${name}_start"
+stop_cmd="${name}_stop"
+restart_cmd="${name}_restart"
+status_cmd="${name}_status"
+log_cmd="${name}_log"
+extra_commands="status log"
+
+load_rc_config $name
+: ${tredlyapi}_enable:=no}
+
+tredlyapi_start()
+{
+    cd ${tredlyapi_directory}
+    ${command} start
+}
+
+tredlyapi_stop()
+{
+    cd ${tredlyapi_directory}
+    ${command} stop
+}
+
+tredlyapi_restart()
+{
+    tredlyapi_stop
+    tredlyapi_start
+}
+
+tredlyapi_status()
+{
+    cd ${tredlyapi_directory}
+    ${command} run list
+}
+tredlyapi_log()
+{
+    cd ${tredlyapi_directory}
+    ${command} run logs
+}
+
+load_rc_config $name
+run_rc_command "$1"
