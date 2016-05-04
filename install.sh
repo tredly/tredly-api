@@ -33,7 +33,7 @@ fi
 BINDIR="/usr/local/sbin/tredly-api"
 
 echo -e "\u001b[32m\u001b[1m################\u001b[22m\u001b[39m"
-echo -e "\u001b[32m\u001b[1m### Installing API... \u001b[22m\u001b[39m"
+echo -e "\u001b[32m\u001b[1m### Installing Tredly Host API... \u001b[22m\u001b[39m"
 
 echo -e "\u001b[32m\u001b[1m### Installing Node.js... \u001b[22m\u001b[39m"
 pkg install -y node
@@ -55,13 +55,13 @@ pwd
 echo -e "\u001b[32m\u001b[1m### Installing dependencies... \u001b[22m\u001b[39m"
 npm install
 
-echo -e "\u001b[32m\u001b[1m### Installing API server... \u001b[22m\u001b[39m"
+echo -e "\u001b[32m\u001b[1m### Installing Tredly Host API server... \u001b[22m\u001b[39m"
 node ./lib/install.js $@
 
-echo -e "\u001b[32m\u001b[1m### Starting API server... \u001b[22m\u001b[39m"
+echo -e "\u001b[32m\u001b[1m### Starting Tredly Host API server... \u001b[22m\u001b[39m"
 service tredlyapi stop &> /dev/null || true
 service tredlyapi start
 
 
 echo -e "\u001b[32m\u001b[1m### ################"
-echo -e "\u001b[32m\u001b[1m### API Installation complete. \u001b[22m\u001b[39m"
+echo -e "\u001b[32m\u001b[1m### Tredly Host API Installation complete. \u001b[22m\u001b[39m"
