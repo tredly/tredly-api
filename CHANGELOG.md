@@ -6,6 +6,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 #### Added
 - Integration with Tredly Host installation scripts
 - New "/push/files" endpoint
+- Non-admin users can update their own details (/edit/user endpoint)
 
 #### Changed
 - Using MIT license instead of GPLv3
