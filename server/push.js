@@ -3,9 +3,9 @@
 var _ = require('lodash');
 var fs = require('fs');
 
-var bash = require('./bash');
-var tools = require('./tools');
-var Archive = require('./archive');
+var bash = require('../lib/bash');
+var tools = require('../lib/tools');
+var Archive = require('../lib/archive');
 
 module.exports = function (router) {
 

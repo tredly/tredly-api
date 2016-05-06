@@ -4,9 +4,9 @@ var _ = require('lodash');
 var fs = require('fs');
 var path = require('path');
 
-var Config = require('./config');
-var Jwt = require('./jwt');
-var tools = require('./tools');
+var Config = require('../lib/config');
+var Jwt = require('../lib/jwt');
+var tools = require('../lib/tools');
 
 var USERS_CONFIG = tools.USERS_CONFIG;
 
@@ -218,22 +218,28 @@ module.exports = function (router) {
             return;
         }
 
+        self.status = 200;
+
         var usersConfig = new Config(USERS_CONFIG);
 
         var users = yield usersConfig.list();
 
-        var result = '';
+        var result = {
+            data: _.map(users, function (user, username) {
+                return {
+                    'UserName': username,
+                    'Role': user.admin ? 'admin' : ''
+                }
+            })
+        };
 
-        result += tools.prepareText('User Name', { size: 30, bold: true });
-        result += tools.prepareText('| Admin', { size: 12, bold: true, newLine: true });
-        result += tools.prepareText('-----------------------------------------', { newLine: true })
-
-        _.forEach(users, function (user, username) {
-            result += tools.prepareText(username, { size: 30 });
-            result += tools.prepareText(user.admin ? '| admin' : '| ', { size: 12, newLine: true });
-        });
+        if (!tools.acceptsJson(self)) {
+            result = tools.formatTable(result.data, {
+                title: 'Listing All Users',
+                total: (result.data.length || 0) + ' users listed.'
+            })
+        }
 
         self.body = result;
-        self.status = 200;
     });
 };
