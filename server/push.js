@@ -37,10 +37,9 @@ module.exports = function (router) {
 function* pushFiles (context, verify) {
     context.status = 200;
 
-    var archive = new Archive(context.res);
-
-    // validate security
     var user = yield tools.getUser(context);
+
+    var archive = new Archive(context.res, user);
 
     return yield archive.extract(context.req, verify);
 

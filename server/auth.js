@@ -92,6 +92,8 @@ module.exports = function (router) {
         var admin = _.isBoolean(self.request.body.admin) ? self.request.body.admin : (
             self.request.body.admin === 'true' ? true : false
             );
+        var partitions = _.isString(self.request.body.partitions) ? _.compact(self.request.body.partitions.split(/[\s,;]+/ig)) : [];
+
 
         if (!username || !password) {
             self.body = tools.prepareText('Please, provide username and password', { red: true, newLine: true });
@@ -112,7 +114,8 @@ module.exports = function (router) {
 
         yield usersConfig.set(username, _.extend(existingUser, {
             passwordHash: passwordHash,
-            admin: admin
+            admin: admin,
+            partitions: partitions
         }));
 
         self.body = tools.prepareText('User created: ' + username, { green: true, newLine: true });
@@ -134,6 +137,9 @@ module.exports = function (router) {
                 self.request.body.admin === 'true' ? true : false
                 )
             );
+        var partitions = _.isUndefined(self.request.body.partitions) ? undefined : (
+            _.isString(self.request.body.partitions) ? _.compact(self.request.body.partitions.split(/[\s,;]+/ig)) : []
+            );
 
         if (!username) {
             self.body = tools.prepareText('Please, provide username', { red: true, newLine: true });
@@ -141,7 +147,8 @@ module.exports = function (router) {
             return;
         }
 
-        if (!user.admin && (username !== user.name || !_.isUndefined(admin))) {
+        if (!user.admin &&
+            (username !== user.name || !_.isUndefined(admin) || !_.isUndefined(partitions))) {
             self.body = tools.prepareText('Access denied', { red: true, newLine: true });
             self.status = 401;
             return;
@@ -160,7 +167,8 @@ module.exports = function (router) {
 
         yield usersConfig.set(username, _.defaults({
             passwordHash: passwordHash,
-            admin: admin
+            admin: admin,
+            partitions: partitions
         }, existingUser));
 
         self.body = tools.prepareText('User updated: ' + username, { green: true, newLine: true });
@@ -228,7 +236,8 @@ module.exports = function (router) {
             data: _.map(users, function (user, username) {
                 return {
                     'UserName': username,
-                    'Role': user.admin ? 'admin' : ''
+                    'Role': user.admin ? 'admin' : '',
+                    'Partitions': user.partitions ? user.partitions.join(',') : ''
                 }
             })
         };
