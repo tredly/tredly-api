@@ -11,6 +11,11 @@ Requires Tredly 0.10.0 <https://github.com/vuid-com/tredly-host> or later
 
 Checkout this repo and run `./install.sh` to install.
 
+Tredly API server will be listening port 65223 and will be accessible over HTTPS protocol.
+
+Installation script will create default administrative account "admin" with password "password".
+Please, do not forget to change it later.
+
 ## Usage
 
 Tredly API can be used alone or with tredly-cli 0.2.0 **<https://github.com/tredly/tredly-cli>** to provide remote access to Tredly Host.
