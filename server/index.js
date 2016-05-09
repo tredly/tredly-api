@@ -14,7 +14,7 @@ var koaBody = require('koa-body');
 var auth = require('./auth');
 var push = require('./push');
 var api = require('./api');
-var Config = require('./config');
+var Config = require('../lib/config');
 
 process.on('uncaughtException', function (p) {
     console.log('Error: ', p);
