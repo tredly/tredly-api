@@ -36,7 +36,7 @@ echo -e "\u001b[32m\u001b[1m### Installing dependencies... \u001b[22m\u001b[39m"
 npm install
 
 echo -e "\u001b[32m\u001b[1m### Installing Tredly Host API server... \u001b[22m\u001b[39m"
-node ./lib/install.js $@
+node ./lib/install.js --username=admin --password=password --port=65223 --ssl=./ssl
 
 echo -e "\u001b[32m\u001b[1m### Starting Tredly Host API server... \u001b[22m\u001b[39m"
 service tredlyapi stop &> /dev/null || true
