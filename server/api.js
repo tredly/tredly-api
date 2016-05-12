@@ -3,6 +3,7 @@
 var _ = require('lodash');
 var tools = require('../lib/tools');
 var bash = require('../lib/bash');
+var access = require('../lib/access');
 var Converter = require('../lib/converter');
 
 module.exports = function (router) {
@@ -10,12 +11,17 @@ module.exports = function (router) {
     router.post('/*', function* (next) {
         var self = this;
 
-        var converter = new Converter(self);
+        var user = yield tools.getUser(this);
+        var accessRes = yield access(user, self.request.url, self.request.body);
+
+        if (!accessRes) {
+            self.status = 401;
+            return;
+        }
 
         self.status = 200;
 
-        // validate security
-        var user = yield tools.getUser(this);
+        var converter = new Converter(self, accessRes);
 
         yield bash(self.request.url, self.request.body, converter.stream);
 
