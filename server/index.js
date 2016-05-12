@@ -12,6 +12,7 @@ var koaCors = require('koa-cors');
 var koaBody = require('koa-body');
 
 var auth = require('./auth');
+var info = require('./info');
 var push = require('./push');
 var api = require('./api');
 var Config = require('../lib/config');
@@ -40,6 +41,7 @@ co(function* () {
     });
 
     auth(router);
+    info(router);
     push(router);
     api(router);
 
