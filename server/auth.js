@@ -20,6 +20,7 @@ module.exports = function (router) {
 
         var usersConfig = new Config(USERS_CONFIG);
         var userName = self.request.body.username;
+        var permanent = !!self.request.body.permanent;
         var user = yield usersConfig.get(userName);
 
         var jwt = new Jwt({
@@ -37,7 +38,8 @@ module.exports = function (router) {
 
         self.body = {
             token: jwt.format(_.extend(user, {
-                name: userName
+                name: userName,
+                permanent: permanent
             }))
         };
         self.status = 200;
@@ -53,7 +55,11 @@ module.exports = function (router) {
             secret: secret
         });
 
-        var payload = jwt.parse(self.request.body.token);
+        var payload = jwt.parse(self.request.body.token, { ignoreExpiry: true });
+        var permanent = !!payload.permanent;
+        if (!permanent) {
+            jwt.checkExpired(payload);
+        }
 
         var usersConfig = new Config(USERS_CONFIG);
         var userName = payload.name;
@@ -67,7 +73,8 @@ module.exports = function (router) {
 
         self.body = {
             token: jwt.format(_.extend(user, {
-                name: userName
+                name: userName,
+                permanent: permanent
             }))
         };
         self.status = 200;
@@ -76,7 +83,7 @@ module.exports = function (router) {
     router.post('/create/user', function* (next) {
         var self = this;
 
-        var info = yield tools.getUser(this, { fullInfo: true });
+        var info = yield tools.getUser(this, { fullInfo: true, strongToken: true });
 
         var user = info.user;
         var jwt = info.jwt;
@@ -125,7 +132,7 @@ module.exports = function (router) {
     router.post('/edit/user', function* (next) {
         var self = this;
 
-        var info = yield tools.getUser(this, { fullInfo: true });
+        var info = yield tools.getUser(this, { fullInfo: true, strongToken: true });
 
         var user = info.user;
         var jwt = info.jwt;
@@ -178,7 +185,7 @@ module.exports = function (router) {
     router.post('/remove/user', function* (next) {
         var self = this;
 
-        var info = yield tools.getUser(this, { fullInfo: true });
+        var info = yield tools.getUser(this, { fullInfo: true, strongToken: true });
 
         var user = info.user;
         var jwt = info.jwt;
@@ -215,7 +222,7 @@ module.exports = function (router) {
     router.post('/list/users', function* (next) {
         var self = this;
 
-        var info = yield tools.getUser(this, { fullInfo: true });
+        var info = yield tools.getUser(this, { fullInfo: true, strongToken: true });
 
         var user = info.user;
         var jwt = info.jwt;
