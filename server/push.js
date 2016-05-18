@@ -41,6 +41,7 @@ function* pushFiles (context, verify) {
 
     var archive = new Archive(context.res, user);
 
-    return yield archive.extract(context.req, verify);
+    return yield archive.extract(context.req, verify,
+        context.query && context.query.path ? context.query : null);
 
 }
