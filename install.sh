@@ -39,6 +39,7 @@ echo -e "\u001b[32m\u001b[1m### Installing Tredly Host API server... \u001b[22m\
 node ./lib/install.js --username=admin --password=password --port=65223 --ssl=./ssl
 
 echo -e "\u001b[32m\u001b[1m### Starting Tredly Host API server... \u001b[22m\u001b[39m"
+echo tredlyapi_enable=\"YES\" >> /etc/rc.conf
 service tredlyapi stop &> /dev/null || true
 service tredlyapi start
 
