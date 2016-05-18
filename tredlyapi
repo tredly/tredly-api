@@ -20,7 +20,9 @@ stop_cmd="${name}_stop"
 restart_cmd="${name}_restart"
 status_cmd="${name}_status"
 log_cmd="${name}_log"
-extra_commands="status log"
+ssl_cmd="${name}_ssl"
+config_cmd="${name}_config"
+extra_commands="status log ssl config"
 
 load_rc_config $name
 : ${tredlyapi}_enable:=no}
@@ -52,6 +54,18 @@ tredlyapi_log()
 {
     cd ${tredlyapi_directory}
     ${command} run logs
+}
+
+tredlyapi_ssl()
+{
+    cd ${tredlyapi_directory}
+    ./ssl.sh
+}
+
+tredlyapi_config()
+{
+    cd ${tredlyapi_directory}
+    ${command} run config
 }
 
 load_rc_config $name
