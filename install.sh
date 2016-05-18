@@ -44,5 +44,14 @@ service tredlyapi stop &> /dev/null || true
 service tredlyapi start
 
 
+echo -e "\n\n"
+echo -e "\u001b[33m\u001b[1m### IMPORTANT \u001b[22m\u001b[39m"
+echo -e "\u001b[33m\u001b[1m### Tredly API has been configured for user - \"admin\", password - \"password\" \u001b[22m\u001b[39m"
+echo -e "\u001b[33m\u001b[1m### Please, do not forget to CHANGE PASSWORD for this user BEFORE USING IN PRODUCTION \u001b[22m\u001b[39m"
+echo -e "\n\n"
+
+sleep 10
+
 echo -e "\u001b[32m\u001b[1m### ################"
 echo -e "\u001b[32m\u001b[1m### Tredly Host API Installation complete. \u001b[22m\u001b[39m"
+
