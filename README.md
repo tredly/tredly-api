@@ -14,7 +14,7 @@ Checkout this repo and run `./install.sh` to install.
 Tredly API server will be listening port 65223 and will be accessible over HTTPS protocol.
 
 Installation script will create default administrative account "admin" with password "password".
-Please, do not forget to change it later.
+Please, do not forget to change it later (use `service tredlyapi config`).
 
 ## Usage
 
