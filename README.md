@@ -7,7 +7,7 @@ This is a software package to provide API to Tredly Host. You can find out more 
 
 ## Installation
 
-Requires Tredly 0.10.7 <https://github.com/vuid-com/tredly-host> or later
+Requires Tredly 0.10.0 <https://github.com/vuid-com/tredly-host> or later
 
 Checkout this repo and run `./install.sh` to install.
 
