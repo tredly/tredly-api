@@ -36,7 +36,8 @@ echo -e "\u001b[32m\u001b[1m### Installing dependencies... \u001b[22m\u001b[39m"
 npm install
 
 echo -e "\u001b[32m\u001b[1m### Installing Tredly Host API server... \u001b[22m\u001b[39m"
-node ./lib/install.js --username=admin --password=password --port=65223 --ssl=./ssl
+API_PASSWORD="$(node ./lib/install.js --username=admin --password --port=65223 --ssl)"
+echo -e "Your API password is: ${API_PASSWORD}"
 
 echo -e "\u001b[32m\u001b[1m### Starting Tredly Host API server... \u001b[22m\u001b[39m"
 echo tredlyapi_enable=\"YES\" >> /etc/rc.conf
@@ -46,10 +47,8 @@ service tredlyapi start
 
 echo -e "\n\n"
 echo -e "\u001b[33m\u001b[1m### IMPORTANT \u001b[22m\u001b[39m"
-echo -e "\u001b[33m\u001b[1m### Tredly API has been configured for user - \"admin\", password - \"password\" \u001b[22m\u001b[39m"
-echo -e "\u001b[33m\u001b[1m### Please, do not forget to CHANGE PASSWORD for this user BEFORE USING IN PRODUCTION \u001b[22m\u001b[39m"
-echo -e "\n"
-echo -e "\u001b[33m\u001b[1m### Please, use \"service tredlyapi config\" command to change the default configuration \u001b[22m\u001b[39m"
+echo -e "\u001b[33m\u001b[1m### Tredly API has been configured for USER - \"admin\", PASSWORD - \"${API_PASSWORD}\" \u001b[22m\u001b[39m"
+echo -e "\u001b[33m\u001b[1m### Please, use \"tredly config api\" command if you want to change the credentials \u001b[22m\u001b[39m"
 echo -e "\n\n"
 
 sleep 10
