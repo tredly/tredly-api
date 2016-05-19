@@ -2,6 +2,17 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [0.3.0] - 2016-05-19
+#### Added
+- Implemented partition-based security
+- Implemented JSON output option for "list"-endpoints
+- New "/view/info" endpoint
+- Permanent JWT token
+
+#### Changed
+- Installation scripts have been simplified
+- Better customization of "push" API
+
 ## [0.2.0] - 2016-05-04
 #### Added
 - Integration with Tredly Host installation scripts
