@@ -8,8 +8,31 @@ var Converter = require('../lib/converter');
 
 module.exports = function (router) {
 
+    router.post('/api/stdin', function* (next) {
+        var self = this;
+
+        var sessionId = getSessionId(self);
+        var user = yield tools.getUser(this);
+
+        var proc = bash.getProcess(sessionId);
+
+        if (proc) {
+            var input = (self.request.body || '').replace('\n', '');
+            proc.process.stdin.write(input + '\n');
+            if (input.toLowerCase() === 'exit' && proc.isWaiting) {
+                proc.process.stdin.end();
+            }
+            proc.isWaiting = true;
+        }
+
+        self.status = 200;
+
+    });
+
     router.post('/*', function* (next) {
         var self = this;
+
+        var sessionId = getSessionId(self);
 
         var user = yield tools.getUser(this);
         var accessRes = yield access(user, self.request.url, self.request.body);
@@ -23,7 +46,7 @@ module.exports = function (router) {
 
         var converter = new Converter(self, accessRes);
 
-        yield bash(self.request.url, self.request.body, converter.stream);
+        yield bash(self.request.url, self.request.body, converter.stream, sessionId);
 
         converter.stream.end();
 
@@ -31,3 +54,8 @@ module.exports = function (router) {
 
     });
 };
+
+function getSessionId (context) {
+    return context.header['x-tredly-api-session'];
+}
+
