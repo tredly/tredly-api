@@ -42,9 +42,13 @@ module.exports = function (router) {
             return;
         }
 
-        self.status = 200;
-
         var converter = new Converter(self, accessRes);
+
+        if (!converter.active) {
+            sendFirstChunk(self);
+        } else {
+            self.status = 200;
+        }
 
         yield bash(self.request.url, self.request.body, converter.stream, sessionId);
 
@@ -54,6 +58,23 @@ module.exports = function (router) {
 
     });
 };
+
+function sendFirstChunk (context) {
+    context.res.setHeader('content-type', 'text/plain; charset=utf-8');
+    context.res.setHeader('transfer-encoding', 'chunked');
+    context.res.writeHead(200);
+
+    var firstChunkSize = context.header['x-tredly-api-first-chunk-size'] &&
+        parseInt(context.header['x-tredly-api-first-chunk-size']) || 0;
+
+    if (firstChunkSize) {
+        context.res.write(
+            new Array(firstChunkSize).join(
+                context.header['x-tredly-api-first-chunk-char'] || '\r'
+            )
+        );
+    }
+}
 
 function getSessionId (context) {
     return context.header['x-tredly-api-session'];
