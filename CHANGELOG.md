@@ -2,6 +2,13 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [0.4.0] - 2016-05-26
+#### Added
+- Implemented interactive API ("/console" endpoint)
+
+#### Changed
+- Fixed: "list"-endpoints return error if the list is empty (JSON mode only)
+
 ## [0.3.0] - 2016-05-19
 #### Added
 - Implemented partition-based security
@@ -26,4 +33,6 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 #### Added
 - Initial release of Tredly API
 
+[0.4.0]: https://github.com/tredly/tredly-api/compare/v0.3.0...v0.4.0
+[0.3.0]: https://github.com/tredly/tredly-api/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/tredly/tredly-api/compare/v0.1.0...v0.2.0

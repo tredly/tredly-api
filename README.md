@@ -1,7 +1,7 @@
 # Tredly API
 
-Version 0.3.0
-May 19 2016
+Version 0.4.0
+May 26 2016
 
 This is a software package to provide API to Tredly Host. You can find out more information about Tredly at **<http://tredly.com>**
 
@@ -17,7 +17,7 @@ Installation script will create default administrative account "admin" with rand
 
 ## Usage
 
-Tredly API can be used alone or with tredly-cli 0.3.0 **<https://github.com/tredly/tredly-cli>** to provide remote access to Tredly Host.
+Tredly API can be used alone or with tredly-cli 0.4.0 **<https://github.com/tredly/tredly-cli>** to provide remote access to Tredly Host.
 
 ## Contributing
 
