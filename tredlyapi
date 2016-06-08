@@ -1,8 +1,8 @@
 #!/bin/sh
 
 # PROVIDE: tredly-api
-# BEFORE:  LOGIN FILESYSTEMS
 # KEYWORD: shutdown
+# REQUIRE: LOGIN
 
 . /etc/rc.subr
 
