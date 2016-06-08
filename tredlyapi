@@ -12,6 +12,7 @@ rcvar="tredlyapi_enable"
 PATH="/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin:/root/bin"
 
 command="/usr/local/bin/npm"
+command_node="/usr/local/bin/node"
 
 tredlyapi_directory="/usr/local/sbin/tredly-api"
 
@@ -49,7 +50,7 @@ tredlyapi_restart()
 tredlyapi_status()
 {
     cd ${tredlyapi_directory}
-    ${command} run list
+    ${command} run list | ${command_node} /usr/local/sbin/tredly-api/lib/status.js
 }
 tredlyapi_log()
 {
