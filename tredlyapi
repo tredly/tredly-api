@@ -22,7 +22,8 @@ status_cmd="${name}_status"
 log_cmd="${name}_log"
 ssl_cmd="${name}_ssl"
 config_cmd="${name}_config"
-extra_commands="status log ssl config"
+credentials_cmd="${name}_credentials"
+extra_commands="status log ssl config credentials"
 
 load_rc_config $name
 : ${tredlyapi}_enable:=no}
@@ -66,6 +67,12 @@ tredlyapi_config()
 {
     cd ${tredlyapi_directory}
     ${command} run config
+}
+
+tredlyapi_credentials()
+{
+    cd ${tredlyapi_directory}
+    ${command} run credentials
 }
 
 load_rc_config $name

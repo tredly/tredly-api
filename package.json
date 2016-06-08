@@ -10,6 +10,7 @@
     "restart": "forever restart tredly-api",
     "logs": "forever logs index.js",
     "config": "node ./lib/install.js --interactive || true",
+    "credentials": "node ./lib/install.js --interactive --credentials || true",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
