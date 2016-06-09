@@ -2,6 +2,11 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [0.5.0] - 2016-06-09
+#### Added
+- Implemented `service tredlyapi status` command which tell us if API is running and what port its using.
+- Implemented `service tredlyapi credentials` command which allow us to change API user credentials
+
 ## [0.4.0] - 2016-05-26
 #### Added
 - Implemented interactive API ("/console" endpoint)
@@ -33,6 +38,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 #### Added
 - Initial release of Tredly API
 
+[0.5.0]: https://github.com/tredly/tredly-api/compare/v0.4.0...v0.5.0
 [0.4.0]: https://github.com/tredly/tredly-api/compare/v0.3.0...v0.4.0
 [0.3.0]: https://github.com/tredly/tredly-api/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/tredly/tredly-api/compare/v0.1.0...v0.2.0
