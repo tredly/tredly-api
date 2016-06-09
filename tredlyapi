@@ -1,8 +1,8 @@
 #!/bin/sh
 
 # PROVIDE: tredly-api
-# BEFORE:  LOGIN FILESYSTEMS
 # KEYWORD: shutdown
+# REQUIRE: LOGIN
 
 . /etc/rc.subr
 
@@ -12,6 +12,7 @@ rcvar="tredlyapi_enable"
 PATH="/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin:/root/bin"
 
 command="/usr/local/bin/npm"
+command_node="/usr/local/bin/node"
 
 tredlyapi_directory="/usr/local/sbin/tredly-api"
 
@@ -22,7 +23,8 @@ status_cmd="${name}_status"
 log_cmd="${name}_log"
 ssl_cmd="${name}_ssl"
 config_cmd="${name}_config"
-extra_commands="status log ssl config"
+credentials_cmd="${name}_credentials"
+extra_commands="status log ssl config credentials"
 
 load_rc_config $name
 : ${tredlyapi}_enable:=no}
@@ -48,7 +50,7 @@ tredlyapi_restart()
 tredlyapi_status()
 {
     cd ${tredlyapi_directory}
-    ${command} run list
+    ${command} run list | ${command_node} /usr/local/sbin/tredly-api/lib/status.js
 }
 tredlyapi_log()
 {
@@ -66,6 +68,12 @@ tredlyapi_config()
 {
     cd ${tredlyapi_directory}
     ${command} run config
+}
+
+tredlyapi_credentials()
+{
+    cd ${tredlyapi_directory}
+    ${command} run credentials
 }
 
 load_rc_config $name
