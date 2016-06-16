@@ -25,8 +25,8 @@ echo -e "\u001b[32m\u001b[1m### Moving installation folder... \u001b[22m\u001b[3
 rm -rf .git
 rm -rf "${BINDIR}"
 mkdir -p "${BINDIR}/"
-mv -f ./tredlyapi /etc/rc.d/
-chmod 555 /etc/rc.d/tredlyapi
+mv -f ./tredlyapi /usr/local/etc/rc.d/
+chmod 555 /usr/local/etc/rc.d/tredlyapi
 mv -f ./* "${BINDIR}/"
 rm -rf ./*
 cd "${BINDIR}/"
