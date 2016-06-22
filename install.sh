@@ -16,10 +16,10 @@ echo -e "\u001b[32m\u001b[1m################\u001b[22m\u001b[39m"
 echo -e "\u001b[32m\u001b[1m### Installing Tredly Host API... \u001b[22m\u001b[39m"
 
 echo -e "\u001b[32m\u001b[1m### Installing Node.js... \u001b[22m\u001b[39m"
-pkg install -y node
+/usr/sbin/pkg install -y node
 
 echo -e "\u001b[32m\u001b[1m### Installing NPM... \u001b[22m\u001b[39m"
-pkg install -y npm
+/usr/sbin/pkg install -y npm
 
 echo -e "\u001b[32m\u001b[1m### Moving installation folder... \u001b[22m\u001b[39m"
 rm -rf .git
@@ -33,7 +33,7 @@ cd "${BINDIR}/"
 pwd
 
 echo -e "\u001b[32m\u001b[1m### Installing dependencies... \u001b[22m\u001b[39m"
-npm install
+/usr/local/bin/npm install
 
 echo -e "\u001b[32m\u001b[1m### Installing Tredly Host API server... \u001b[22m\u001b[39m"
 API_PASSWORD="$(node ./lib/install.js --username=admin --password --port=65223 --ssl)"
