@@ -2,6 +2,15 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [1.0.0] - 2016-06-23
+#### Changed
+- Change rc.d script location from /etc/rc.d to /usr/local/etc/rc.d
+- Change path to node
+
+#### Added
+- Add full paths to installer
+- Accept password from input stream in "install.sh (Closes tredly/tredly-api#46)
+
 ## [0.5.0] - 2016-06-09
 #### Added
 - Implemented `service tredlyapi status` command which tell us if API is running and what port its using.
@@ -38,6 +47,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 #### Added
 - Initial release of Tredly API
 
+[1.0.0]: https://github.com/tredly/tredly-api/compare/v0.5.0...v1.0.0
 [0.5.0]: https://github.com/tredly/tredly-api/compare/v0.4.0...v0.5.0
 [0.4.0]: https://github.com/tredly/tredly-api/compare/v0.3.0...v0.4.0
 [0.3.0]: https://github.com/tredly/tredly-api/compare/v0.2.0...v0.3.0

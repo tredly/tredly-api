@@ -1,13 +1,13 @@
 # Tredly API
 
-Version 0.5.0
-June 9 2016
+Version 1.0.0
+June 23 2016
 
-This is a software package to provide API to Tredly Host. You can find out more information about Tredly at **<http://tredly.com>**
+This is a software package to provide API to a Tredly Host. You can find out more information about Tredly at **<http://tredly.com>**
 
 ## Installation
 
-Requires Tredly 0.10.0 <https://github.com/vuid-com/tredly-host> or later
+Requires Tredly 1.0.0 <https://github.com/vuid-com/tredly-host> or later
 
 Checkout this repo and run `./install.sh` to install.
 
@@ -17,7 +17,7 @@ Installation script will create default administrative account "admin" with rand
 
 ## Usage
 
-Tredly API can be used alone or with tredly-cli 0.4.0 **<https://github.com/tredly/tredly-cli>** to provide remote access to Tredly Host.
+Tredly API can be used alone or with tredly-cli 1.0.0 **<https://github.com/tredly/tredly-cli>** to provide remote access to a Tredly Host.
 
 ## Contributing
 
