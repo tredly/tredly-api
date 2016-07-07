@@ -2,6 +2,11 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [1.0.1] - 2016-07-07
+#### Changed
+- Fixed compatibility issues
+- Fixed access issue
+
 ## [1.0.0] - 2016-06-23
 #### Changed
 - Change rc.d script location from /etc/rc.d to /usr/local/etc/rc.d
