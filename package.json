@@ -1,6 +1,6 @@
 {
   "name": "tredly-api",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Tredly API",
   "main": "index.js",
   "scripts": {

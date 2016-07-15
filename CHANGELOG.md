@@ -2,6 +2,11 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+
+## [1.0.2] - 2016-07-15
+#### Changed
+- Switch to NodeJS v4
+
 ## [1.0.1] - 2016-07-07
 #### Changed
 - Fixed compatibility issues
@@ -52,6 +57,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 #### Added
 - Initial release of Tredly API
 
+[1.0.2]: https://github.com/tredly/tredly-api/compare/v1.0.1...v1.0.2
+[1.0.1]: https://github.com/tredly/tredly-api/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/tredly/tredly-api/compare/v0.5.0...v1.0.0
 [0.5.0]: https://github.com/tredly/tredly-api/compare/v0.4.0...v0.5.0
 [0.4.0]: https://github.com/tredly/tredly-api/compare/v0.3.0...v0.4.0
