@@ -2,6 +2,9 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [1.0.3] - 2016-07-26
+#### Changed
+- Fix for NodeJS v4's process spawn
 
 ## [1.0.2] - 2016-07-15
 #### Changed
