@@ -1,13 +1,13 @@
 # Tredly API
 
-Version 1.0.3
-July 26 2016
+Version 1.0.4
+August 12 2016
 
 This is a software package to provide API to a Tredly Host. You can find out more information about Tredly at **<http://tredly.com>**
 
 ## Installation
 
-Requires Tredly 1.0.0 <https://github.com/vuid-com/tredly-host> or later
+Requires Tredly 1.0.0 <https://github.com/tredly/tredly> or later
 
 Checkout this repo and run `./install.sh` to install.
 
